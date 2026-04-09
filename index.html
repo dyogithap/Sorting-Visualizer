@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Sorting Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header">
+    <h1>Algorithm Visualizer <span style="color: var(--secondary)">Pro</span></h1>
+    <p>Step-by-Step Execution with Audio Feedback</p>
+</div>
+
+<div class="visualizer-container">
+    <div class="view-panel">
+        <h3>Bubble Sort</h3>
+        <div id="chart-1" class="bar-chart"></div>
+        <div class="code-trace" id="trace-1">
+            <div id="line-1">while(swapped) {</div>
+            <div id="line-2">&nbsp;&nbsp;if(a[i] > a[i+1])</div>
+            <div id="line-3">&nbsp;&nbsp;&nbsp;&nbsp;swap(a[i], a[i+1])</div>
+        </div>
+    </div>
+</div>
+
+<div class="controls">
+    <div>
+        <label>Array Size</label><br>
+        <input type="range" id="size" min="5" max="50" value="20" oninput="init()">
+    </div>
+    <div>
+        <label>Speed (ms)</label><br>
+        <input type="range" id="speed" min="10" max="1000" value="100" dir="rtl">
+    </div>
+    <div style="display: flex; gap: 5px;">
+        <button onclick="prev()">⏮ Prev</button>
+        <button onclick="next()">Next ⏭</button>
+        <button onclick="init()" style="background: var(--secondary)">Reset</button>
+    </div>
+    <button onclick="toggleAudio()">Toggle Sound: <span id="audio-status">OFF</span></button>
+    <div id="complexity" style="grid-column: span 2; font-size: 14px; align-self: center;">
+        Complexity: <strong>O(n²)</strong> | Comparisons: <span id="comp-count">0</span>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
