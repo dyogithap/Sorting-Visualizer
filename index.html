@@ -3,48 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ultimate Sorting Visualizer</title>
+    <title>Sorting Visualizer Pro</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="header">
-    <h1>Algorithm Visualizer <span style="color: var(--secondary)">Pro</span></h1>
-    <p>Step-by-Step Execution with Audio Feedback</p>
-</div>
+    <div class="header">
+        <h1>Sorting <span class="highlight-text">Visualizer</span></h1>
+        <p>Helping everyone understand how computers organize data.</p>
+    </div>
 
-<div class="visualizer-container">
-    <div class="view-panel">
-        <h3>Bubble Sort</h3>
-        <div id="chart-1" class="bar-chart"></div>
-        <div class="code-trace" id="trace-1">
-            <div id="line-1">while(swapped) {</div>
-            <div id="line-2">&nbsp;&nbsp;if(a[i] > a[i+1])</div>
-            <div id="line-3">&nbsp;&nbsp;&nbsp;&nbsp;swap(a[i], a[i+1])</div>
+    <div class="main-container">
+        <div class="view-panel">
+            <h2 id="algo-title">Bubble Sort</h2>
+            <div id="chart-container" class="bar-chart"></div>
+            
+            <div class="code-box">
+                <p id="simple-explanation">Bubble Sort: Swapping neighbors if they are in the wrong order!</p>
+                <div class="code-trace">
+                    <div id="line-1">while(swapped) {</div>
+                    <div id="line-2">&nbsp;&nbsp;if(left > right)</div>
+                    <div id="line-3">&nbsp;&nbsp;&nbsp;&nbsp;swap(them)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label>Choose Algorithm</label>
+                <select id="algo-type" onchange="init()">
+                    <option value="bubble">Bubble Sort (The Swapper)</option>
+                    <option value="selection">Selection Sort (The Searcher)</option>
+                    <option value="insertion">Insertion Sort (The Slider)</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label>Type Numbers (e.g. 5, 2, 9)</label>
+                <input type="text" id="custom-input" placeholder="Type here...">
+                <button onclick="init(true)" class="btn-small">Use My Numbers</button>
+            </div>
+
+            <div class="control-group buttons">
+                <button onclick="prev()">Back</button>
+                <button onclick="next()" class="btn-primary">Next Step</button>
+                <button onclick="init()" class="btn-outline">New Random</button>
+            </div>
+
+            <div class="control-group">
+                <button id="audio-btn" onclick="toggleAudio()" class="btn-audio">🔈 Audio: OFF</button>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="controls">
-    <div>
-        <label>Array Size</label><br>
-        <input type="range" id="size" min="5" max="50" value="20" oninput="init()">
-    </div>
-    <div>
-        <label>Speed (ms)</label><br>
-        <input type="range" id="speed" min="10" max="1000" value="100" dir="rtl">
-    </div>
-    <div style="display: flex; gap: 5px;">
-        <button onclick="prev()">⏮ Prev</button>
-        <button onclick="next()">Next ⏭</button>
-        <button onclick="init()" style="background: var(--secondary)">Reset</button>
-    </div>
-    <button onclick="toggleAudio()">Toggle Sound: <span id="audio-status">OFF</span></button>
-    <div id="complexity" style="grid-column: span 2; font-size: 14px; align-self: center;">
-        Complexity: <strong>O(n²)</strong> | Comparisons: <span id="comp-count">0</span>
-    </div>
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
